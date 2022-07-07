@@ -26,6 +26,9 @@ class _HomeState extends State<Home> {
               Icons.flutter_dash,
               size: 40,
             ),
+            SizedBox(
+              width: 10,
+            ),
           ],
           title: Row(
             children: const [
@@ -57,7 +60,6 @@ class _HomeState extends State<Home> {
         ),
         body: TabBarView(children: [
           SegundoEncontro(),
-          
           Stack(
             children: [
               Center(
@@ -65,7 +67,7 @@ class _HomeState extends State<Home> {
                   alignment: Alignment.center * .05,
                   width: mediaQuery.width,
                   decoration: const BoxDecoration(
-                      image: DecorationImage(
+                    image: DecorationImage(
                       image: AssetImage('assets/encontro4.png'),
                       fit: BoxFit.cover,
                     ),
@@ -107,7 +109,12 @@ class _HomeState extends State<Home> {
                         function: () {
                           setState(
                             () {
-                              contador--;
+                              if (contador >= 1) {
+                                contador--;
+                              } else {
+                                contador == 0;
+                              }
+                            
                             },
                           );
                         },
@@ -119,11 +126,13 @@ class _HomeState extends State<Home> {
             ],
           ),
           Center(
-            child: Text('Em Breve!!!',
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-            ),),
+            child: Text(
+              'Em Breve!!!',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ]),
       ),
